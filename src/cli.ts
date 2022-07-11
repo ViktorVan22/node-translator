@@ -9,7 +9,6 @@ program
     .usage('<English>')  //尖括号表示必填
     .arguments('<English>')
     .action(function (english) {
-        console.log('Your input: ')
         translate('english')
     })
 
