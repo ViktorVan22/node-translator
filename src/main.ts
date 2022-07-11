@@ -14,7 +14,11 @@ interface BaiduResult {
     }[]
 }
 
-const errorMap = {
+interface ErrorMap {
+    [k: string]: string | undefined
+}
+
+const errorMap: ErrorMap = {
     52000: '成功',
     52001: '请求超时，请重试',
     52002: '系统错误，请重试',
@@ -36,9 +40,8 @@ export const translate = (word: string) => {
 
     const sign = md5(appId + word + salt + appSecret)
 
-    console.log(/[a-zA-Z]/.test(word[0]))
-
     let from, to
+    // 根据首字母判断中英文
     if (/[a-zA-Z]/.test(word[0])) {
         // 英译中
         from = 'en'
@@ -76,7 +79,7 @@ export const translate = (word: string) => {
             const object: BaiduResult = JSON.parse(string)
             if (object.error_code) {
                 console.error(
-                    errorMap[object.error_code as keyof object]
+                    errorMap[object.error_code]
                     || object.error_msg
                 )
                 process.exit(2)

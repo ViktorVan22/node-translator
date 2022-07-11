@@ -2,6 +2,12 @@
   "name": "node-Baidu-translation-demo",
   "version": "0.0.1",
   "main": "index.js",
+  "bin": {
+    "fy": "src/cli.ts"
+  },
+  "files": [
+    "dist/**/*.js"
+  ],
   "scripts": {
     "start": "ts-node-dev src/main.ts"
   },
