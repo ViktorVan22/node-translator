@@ -8,8 +8,8 @@ program
     .name('translator')
     .usage('<English>')  //尖括号表示必填
     .arguments('<English>')
-    .action(function (english) {
-        translate('english')
+    .action(function (word) {
+        translate(word)
     })
 
 program.parse(process.argv)
